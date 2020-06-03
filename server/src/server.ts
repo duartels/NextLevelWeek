@@ -1,19 +1,11 @@
 import express from 'express'
+import routes from './routes'
 
 const app = express()
 
-app.get('/users', (req, res)=>{
-    console.log('listagem de usuários')
+app.use(express.json())
 
-
-    res.json([
-        'Diego',
-        'Luan',
-        'Saul',
-        'João',
-        'Lucas'
-    ])
-})
+app.use(routes)
 
 app.listen(3333, ()=>{
     console.log('Server is listening on port: 3333')
